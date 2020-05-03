@@ -15,8 +15,8 @@ $(document ).ready(function(){
 	}
 });
 
-
-$("#x").click(function(){
+//Devrait marcher
+$(".buy").click(function(){
 	alert($(this).attr("data-cardid"));
 	  $.post("/buy", {id: $(this).attr("data-cardid")}, function(result){
 		  alert(this.attr("data-cardId"));
@@ -52,12 +52,14 @@ function addCardToList(data){
     <td>"+data.defence+"</td> \
     <td>"+data.price+"$</td>\
     <td>\
-        <div class='ui vertical animated button' tabindex='0' data-cardid="+data.id+">\
-            <div class='hidden content'>Sell</div>\
-    <div class='visible content'>\
-        <i class='shop icon'></i>\
-    </div>\
-    </div>\
+        <div class='buy' tabindex='0' data-cardid="+data.id+">\
+        	<div class='ui vertical animated button' >\
+        		<div class='hidden content'>Buyl</div>\
+        		<div class='visible content'>\
+        			<i class='shop icon'></i>\
+        		</div>\
+        	</div>\
+       </div>\
     </td>";
     
     $('#cardListId tr:last').after('<tr>'+content+'</tr>');

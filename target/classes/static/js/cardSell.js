@@ -13,11 +13,11 @@ $(document ).ready(function(){
 	});
 });
 
-$(".ui vertical animated button").click(function(){
-	  $.post("/sell", {id: this.getAttibute("data-cardId")}, function(result){
-		  alert(result);
+$(".sell").click(function(){
+	alert($(this).attr("data-cardid"));
+	  $.post("/sell", {id: $(this).attr("data-cardid")}, function(result){
+		  alert(this.attr("data-cardId"));
 	  });
-	  alert("ok");
 });
 
 
@@ -50,12 +50,14 @@ function addCardToList(data){
     <td>"+data.defence+"</td> \
     <td>"+data.price+"$</td>\
     <td>\
-        <div class='ui vertical animated button' tabindex='0' data-cardId="+data.id+">\
-            <div class='hidden content'>Sell</div>\
-    <div class='visible content'>\
-        <i class='shop icon'></i>\
-    </div>\
-    </div>\
+        <div class='sell' tabindex='0' data-cardid="+data.id+">\
+        	<div class='ui vertical animated button' >\
+        		<div class='hidden content'>Sell</div>\
+        		<div class='visible content'>\
+        			<i class='shop icon'></i>\
+        		</div>\
+        	</div>\
+       </div>\
     </td>";
     
     $('#cardListId tr:last').after('<tr>'+content+'</tr>');
