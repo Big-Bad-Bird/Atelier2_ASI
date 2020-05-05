@@ -17,12 +17,12 @@ public class CardShopController {
 		return cardShopService.getallCard();
 	}
 	
-	@RequestMapping("/ById/{id}") // syntaxe pour ça: /Card/id="string"
+	@RequestMapping("/ById/{id}") // syntaxe pour ça: /Byid/id
 	public CardModel getCardById(@PathVariable String id) {
 		return cardShopService.getCardById(id);
 	}
 	
-	@RequestMapping("/ByName/{name}") // syntaxe pour ça: /Card/name="string"
+	@RequestMapping("/ByName/{name}") // syntaxe pour ça: /ByName/name
 	public CardModel getCard(@PathVariable String name) {
 		return cardShopService.getCard(name);
 	}
@@ -33,8 +33,20 @@ public class CardShopController {
 	}
 	
 	@RequestMapping("/delCard/{card}")
-	public void delCArd(@PathVariable CardModel card) {
+	public void delCard(@PathVariable CardModel card) {
 		cardShopService.delCard(card);
+	}
+	
+	
+	// en attendant de savoir comment on gère les différents profils si on achète aux uns et aux autres etc
+	@RequestMapping("/buyCard/{id}")
+	public void buyCard(@PathVariable String id) { // user à ajouter plus tard pour savoir qui achète
+		cardShopService.buyCard(id);
+	}
+	
+	@RequestMapping("/sellCard/{id}")
+	public void sellCard(@PathVariable String id) { // user à ajouter plus tard pour savoir qui achète
+		cardShopService.sellCard(id);
 	}
 }
 
