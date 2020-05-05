@@ -41,6 +41,13 @@ public class CardShopControler {
 	}
 	
 	
+	//marche pas TODO
+	@RequestMapping("/home")
+    public String Home() {
+        return "redirect:cardHome.html";
+    }
+	
+	
 }
 
 
