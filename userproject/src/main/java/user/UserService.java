@@ -11,12 +11,12 @@ public class UserService {
 	@Autowired
 	UserRepository uRepo;
 	
-	public User createUser() {
+	public User createUser(User newUser) {
 		User u = new User();
-		u.setName("lucie");
-		u.setSurname("limace44");
-		u.setPassword("psw");
-		
+		u.setName(newUser.getName());
+		u.setSurname(newUser.getSurname());
+		u.setPassword(newUser.getPassword());
+//		
 		uRepo.save(u);
 		
 		return u;		
@@ -28,6 +28,9 @@ public class UserService {
 		return uIter;
 	}
 	
+	public void Session() {
+		
+	}
 	
 
 }

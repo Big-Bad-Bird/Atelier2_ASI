@@ -1,5 +1,7 @@
 package user;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +16,8 @@ public class User {
 	private String name;
 	private String surname;
 	private String password;
+	private Integer argent;
+	private ArrayList<Long> collection; //Liste des cartes possédées par l'utilisateur
 	
 	public User () {
 		
@@ -50,6 +54,20 @@ public class User {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getArgent() {
+		return argent;
+	}
+
+	public void setArgent(Integer argent) {
+		this.argent = argent;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", surname=" + surname + ", password=" + password + ", argent="
+				+ argent + ", collection=" + collection + "]";
 	}
 		
 

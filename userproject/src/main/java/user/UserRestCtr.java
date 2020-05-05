@@ -1,6 +1,7 @@
 package user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,10 +26,17 @@ public class UserRestCtr {
 //		return u;
 //	}
 	
-	@RequestMapping("/userservicejson")
-	public User useService() {
-		User u = uService.createUser();
-		return u;
+	@PostMapping("/create-user")
+	public User userService(@RequestBody User newUser) {
+		try {
+			User u = uService.createUser(newUser);
+			return u;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+
 	}
 	
 	@RequestMapping("/allusers")
