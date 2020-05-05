@@ -17,22 +17,22 @@ public class CardShopController {
 		return cardShopService.getallCard();
 	}
 	
-	@RequestMapping("/Card/{id}") // syntaxe pour ça: /Card/id="string"
+	@RequestMapping("/ById/{id}") // syntaxe pour ça: /Card/id="string"
 	public CardModel getCardById(@PathVariable String id) {
 		return cardShopService.getCardById(id);
 	}
 	
-	@RequestMapping("/Card/{name}") // syntaxe pour ça: /Card/name="string"
+	@RequestMapping("/ByName/{name}") // syntaxe pour ça: /Card/name="string"
 	public CardModel getCard(@PathVariable String name) {
 		return cardShopService.getCard(name);
 	}
 	
-	@RequestMapping("/Card/addCard/{card}")
+	@RequestMapping("/addCard/{card}")
 	public void addCard(@PathVariable CardModel card) {
 		cardShopService.addCard(card);
 	}
 	
-	@RequestMapping("/Card/delCard/{card}")
+	@RequestMapping("/delCard/{card}")
 	public void delCArd(@PathVariable CardModel card) {
 		cardShopService.delCard(card);
 	}
