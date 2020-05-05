@@ -33,7 +33,8 @@ public class CardShopService {
 		CardModel cardReturn = this.errorCard;
 		
 		for(CardModel card : this.cards) {
-			if(card.getName() == name) {
+			if(card.getName().equals(name)) {
+				System.out.print(card.getName());
 				cardReturn = card;
 			}
 		}
