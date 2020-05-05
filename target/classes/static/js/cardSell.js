@@ -1,30 +1,29 @@
 $(document ).ready(function(){
     
-	//TODO
 	var i;
+	var nbCards = 1;
 	$.get("/getCardPerso", function(data){
-		for(i=1;i<3;i++){
-			if (i==1){
-				fillCurrentCard(dataCard);
-			}		    
-			alert("Data: " + dataCard);
-			addCardToList(dataCard);
+		fillCurrentCard(data[0]);
+		
+		for(i=1; i<=nbCards; i++){
+			addCardToList(data[i]);
 		}
+		
+		//ajout listeners
+		$(".sell").click(function(){
+			  $.post("/sell", {id: $(this).attr("data-cardid")}, function(result){
+				  alert("Carte Vendue!");
+			  });
+		});
 	});
 });
 
-$(".sell").click(function(){
-	alert($(this).attr("data-cardid"));
-	  $.post("/sell", {id: $(this).attr("data-cardid")}, function(result){
-		  alert(this.attr("data-cardId"));
-	  });
-});
 
 
 function fillCurrentCard(data){
     //FILL THE CURRENT CARD
     $('#cardFamilyImgId')[0].src=data.imgUrlFamily;
-    $('#cardFamilyNameId')[0].innerText=data.familyName;
+    $('#cardFamilyNameId')[0].innerText=data.family;
     $('#cardImgId')[0].src=data.imgUrl;
     $('#cardNameId')[0].innerText=data.name;
     $('#cardDescriptionId')[0].innerText=data.description;
@@ -43,7 +42,7 @@ function addCardToList(data){
     <img  class='ui avatar image' src='"+data.imgUrl+"'> <span>"+data.name+" </span> \
    </td> \
     <td>"+data.description+"</td> \
-    <td>"+data.familyName+"</td> \
+    <td>"+data.family+"</td> \
     <td>"+data.hp+"</td> \
     <td>"+data.energy+"</td> \
     <td>"+data.attack+"</td> \

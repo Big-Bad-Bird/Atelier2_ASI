@@ -12,9 +12,10 @@ public class CardModel {
 	private int defence;
 	private int attack;
 	private String imgUrl;
+	private int price;
 
 	public CardModel(String name, String description, String family, int hp, int energy, int defence, int attack,
-			String imgUrl) {
+			String imgUrl, int price) {
 		super();
 		this.id = UUID.randomUUID().toString();
 		this.name = name;
@@ -25,6 +26,15 @@ public class CardModel {
 		this.defence = defence;
 		this.attack = attack;
 		this.imgUrl = imgUrl;
+		this.price = price;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	public CardModel() {
