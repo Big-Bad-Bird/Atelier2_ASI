@@ -56,4 +56,26 @@ public class CardShopService {
 		}
 		return cardReturn;
 	}
+/***
+	public bool sellCard(String id, User vendeur) {
+		// TODO on vérifie que l'id est dans la collection du user puis
+		// on décrémente la quantitée possédée si ça ne passe pas sous 0 sinon vente impossible
+		// return true si vente ok false sinon (modif BdD ?)
+	}
+***/
+
+	
+/***
+	public bool buyCard(String id, User acheteur) {
+		// TODO on vérifie que l'utilisateur peut acheter (fonds suffisants) puis
+		// on décrémente son porte monnaie
+		// return true si achat ok false sinon (modif BdD ?)
+	}
+***/
 }	
+
+
+
+
+
+
