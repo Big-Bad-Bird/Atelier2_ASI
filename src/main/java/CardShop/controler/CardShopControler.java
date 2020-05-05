@@ -20,7 +20,7 @@ public class CardShopControler {
 		return cardShopService.getallCard();
 	}
 	
-	@RequestMapping("/Card/{id}")
+	@RequestMapping("/Card/{id}") // syntaxe pour ça: /Card/id="string"
 	public CardModel getCardById(@PathVariable String id) {
 		return cardShopService.getCardById(id);
 	}
@@ -29,4 +29,11 @@ public class CardShopControler {
 	public void addCard(@PathVariable CardModel card) {
 		cardShopService.addCard(card);
 	}
+	
+	@RequestMapping("/Card/delCard/{card}")
+	public void delCArd(@PathVariable CardModel card) {
+		cardShopService.delCard(card);
+	}
 }
+
+
