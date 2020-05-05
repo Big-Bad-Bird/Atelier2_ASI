@@ -1,4 +1,4 @@
-package CardShop.model;
+package CardShop.springbootstarter.model;
 
 import java.util.Arrays;
 import java.util.List;
