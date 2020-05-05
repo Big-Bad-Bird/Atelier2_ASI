@@ -38,7 +38,13 @@ public class CardShopController {
 	}
 	
 	
-	// en attendant de savoir comment on gère les différents profils si on achète aux uns et aux autres etc
+	/*** en attendant de savoir comment on gère les différents profils	*
+	*    si on achète aux uns et aux autres etc
+	*   
+	*
+	***/
+	
+	
 	@RequestMapping("/buyCard/{id}")
 	public void buyCard(@PathVariable String id) { // user à ajouter plus tard pour savoir qui achète
 		cardShopService.buyCard(id);
