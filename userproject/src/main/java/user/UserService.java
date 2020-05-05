@@ -16,10 +16,20 @@ public class UserService {
 		u.setName(newUser.getName());
 		u.setSurname(newUser.getSurname());
 		u.setPassword(newUser.getPassword());
+		u.setArgent(10000);
 //		
 		uRepo.save(u);
 		
 		return u;		
+	}
+	
+	public User getUserInfo(Integer userId) {
+		if(uRepo.findById(userId).isPresent()) {
+			User userToFind = uRepo.findById(userId).get();
+			System.out.println("\nUSER TO FIND => "+userToFind);
+			return userToFind;
+		}
+		return null;
 	}
 	
 	public Iterable<User> getAllUser(){
