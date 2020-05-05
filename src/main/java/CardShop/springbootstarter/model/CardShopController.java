@@ -1,4 +1,4 @@
-package CardShop.controler;
+package CardShop.springbootstarter.model;
 
 import java.util.List;
 
@@ -7,11 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import CardShop.model.CardModel;
-import CardShop.model.CardShopService;
-
 @RestController
-public class CardShopControler {
+public class CardShopController {
 	@Autowired
 	private CardShopService cardShopService;
 	
