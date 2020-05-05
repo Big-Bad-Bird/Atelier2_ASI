@@ -25,6 +25,11 @@ public class CardShopControler {
 		return cardShopService.getCardById(id);
 	}
 	
+	@RequestMapping("/Card/{name}") // syntaxe pour ça: /Card/name="string"
+	public CardModel getCard(@PathVariable String name) {
+		return cardShopService.getCard(name);
+	}
+	
 	@RequestMapping("/Card/addCard/{card}")
 	public void addCard(@PathVariable CardModel card) {
 		cardShopService.addCard(card);
@@ -34,6 +39,8 @@ public class CardShopControler {
 	public void delCArd(@PathVariable CardModel card) {
 		cardShopService.delCard(card);
 	}
+	
+	
 }
 
 

@@ -47,11 +47,6 @@ public class CardShopService {
 	public void delCard(CardModel card) {
 		this.cards.remove(card);
 	}
-
-	public void updateCard(CardModel card) {
-		this.delCard(card); // mouais faudrait ptet le faire par Id vu que ce truc change pas
-		this.addCard(card); // ça c'est bon
-	}
 	
 	public CardModel getCardById(String id) {
 		
