@@ -36,15 +36,6 @@ public class CardShopController {
 	public void delCArd(@PathVariable CardModel card) {
 		cardShopService.delCard(card);
 	}
-	
-	
-	//marche pas TODO
-	@RequestMapping("/home")
-    public String Home() {
-        return "redirect:cardHome.html";
-    }
-	
-	
 }
 
 
