@@ -14,10 +14,10 @@ public class UserService {
 	public User createUser(User newUser) {
 		User u = new User();
 		u.setName(newUser.getName());
-		u.setSurname(newUser.getUsername());
+		u.setUsername(newUser.getUsername());
 		u.setPassword(newUser.getPassword());
 		u.setArgent(10000);
-//		
+		System.out.println("\nCREATE USER");
 		uRepo.save(u);
 		
 		return u;		
@@ -38,6 +38,10 @@ public class UserService {
 		return uIter;
 	}
 	
-	
+	public User findByUsernameAndPassword(String username, String password) {
+		User userFound = uRepo.findByUsernameAndPassword(username, password);
+		System.out.println("\nTHIS USER => "+userFound);
+		return userFound;
+	}
 
 }

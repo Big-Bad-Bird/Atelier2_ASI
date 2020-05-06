@@ -12,6 +12,32 @@
         <link rel="stylesheet" type="text/css" href="lib/Semantic-UI-CSS-master/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="custom.css">
 
+
+
+    </head>
+
+    <body>
+        <div class="ui five column grid">
+            <div class="row"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column">
+                <form id="formLogin" name="login" class="ui form" method="GET" onSubmit="askIfExists();return false">
+                    <h3 class="ui dividing header">Login</h3>
+                    <div class="field">
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Username">
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <input type="text" name="password" placeholder="Password">
+                    </div>
+                    <button class="ui button" type="submit" >Connect</button>
+                </form>
+            </div>
+        </div>
+        <a href="formAddUser.html"> Vous n'avez pas encore de compte ? Inscrivez-vous ici. </a>
+
         <script type="text/javascript">
             function askIfExists(){
                 // Création de la requête
@@ -39,29 +65,5 @@
             };
                   
         </script>
-
-    </head>
-
-    <body>
-        <div class="ui five column grid">
-            <div class="row"></div>
-            <div class="column"></div>
-            <div class="column"></div>
-            <div class="column">
-                <form id="formLogin" name="login" class="ui form" method="GET" onSubmit="askIfExists();return false">
-                    <h3 class="ui dividing header">Login</h3>
-                    <div class="field">
-                        <label>Username</label>
-                        <input type="text" name="username" placeholder="Username">
-                    </div>
-                    <div class="field">
-                        <label>Password</label>
-                        <input type="text" name="password" placeholder="Password">
-                    </div>
-                    <button class="ui button" type="submit" >Connect</button>
-                </form>
-            </div>
-        </div>
-        <a href="formAddUser.html"> Vous n'avez pas encore de compte ? Inscrivez-vous ici. </a>
     </body>
 </html>

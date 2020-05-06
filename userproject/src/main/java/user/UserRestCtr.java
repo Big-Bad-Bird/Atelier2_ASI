@@ -1,6 +1,10 @@
 package user;
 
+import java.util.ArrayList;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.bytebuddy.asm.Advice.This;
+
 @RestController
 public class UserRestCtr {
+	
+	private User currentUser;
 	
 	@Autowired
 	UserService uService;
@@ -59,10 +67,11 @@ public class UserRestCtr {
 	@PostMapping("/verif-login")
 	public ResponseEntity<User> findUserByUsername(@RequestBody User user) {
 		System.out.println("Passage dans verif-login");
-//		Optional<User> userFound = userService.findByUsername(user.getUsername());
-//		return new ResponseEntity<User>(userFound.get(), HttpStatus.FOUND);
-		return null;
-//		Une fois la vérif ok, démarre session.
+		User userFound = uService.findByUsernameAndPassword(user.getUsername(),user.getPassword());
+		this.currentUser = userFound;
+		System.out.println("\nTHIS.CURRENTUSER = " + this.currentUser +"\n");
+		return new ResponseEntity<User>(userFound, HttpStatus.FOUND);
 	}
+	
 
 }

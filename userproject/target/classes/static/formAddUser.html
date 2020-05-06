@@ -12,37 +12,7 @@
         <link rel="stylesheet" type="text/css" href="lib/Semantic-UI-CSS-master/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="custom.css">
 
-        <script type="text/javascript">
-            function create_u(){
-                // Création de la requête
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'create-user');
-                xhr.setRequestHeader("Content-Type", "application/json");
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        var json = JSON.parse(xhr.responseText);
-                        console.log(json);
-                     }
-                };
-
-                // Récupération des données de l'utilisateur
-                var form = document.getElementById("formAddUser");
-                var name = form.elements[0].value; // Affiche "Prenom"
-                var surname = form.elements[1].value; // Affiche "Pseudo"
-                var password = form.elements[2].value; // Affiche "Mdp"
-                var user = {}
-                user.name = name;
-                user.username = username;
-                user.password = password;
-                var chaineJSON = JSON.stringify(user);
-
-                // Envoi de la requête
-                xhr.send(chaineJSON);
-            };
-                
-
-            
-        </script>
+        
 
     </head>
 
@@ -59,7 +29,7 @@
                         <input type="text" name="name" placeholder="Enter your Name">
                     </div>
                     <div class="field">
-                        <label>Surname</label>
+                        <label>Username</label>
                         <input type="text" name="username" placeholder="Enter your Username">
                     </div>
                     <div class="field">
@@ -80,5 +50,36 @@
                 </form>
             </div>
         </div>
+        <script type="text/javascript">
+            function create_u(){
+                // Création de la requête
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'create-user');
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var json = JSON.parse(xhr.responseText);
+                        console.log(json);
+                     }
+                };
+
+                // Récupération des données de l'utilisateur
+                var form = document.getElementById("formAddUser");
+                var name = form.elements[0].value; // Affiche "Prenom"
+                var username = form.elements[1].value; // Affiche "Pseudo"
+                var password = form.elements[2].value; // Affiche "Mdp"
+                var user = {}
+                user.name = name;
+                user.username = username;
+                user.password = password;
+                var chaineJSON = JSON.stringify(user);
+
+                // Envoi de la requête
+                xhr.send(chaineJSON);
+            };
+                
+
+            
+        </script>
     </body>
 </html>

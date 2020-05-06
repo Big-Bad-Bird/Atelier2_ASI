@@ -35,10 +35,9 @@ public class User {
 		return username;
 	}
 
-	public void setSurname(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
-
 
 	public String getPassword() {
 		return password;
@@ -63,6 +62,17 @@ public class User {
 	public void setArgent(Integer argent) {
 		this.argent = argent;
 	}
+	
+
+	public ArrayList<Long> getCollection() {
+		return collection;
+	}
+
+	public void setCollection(ArrayList<Long> collection) {
+		this.collection = collection;
+	}
+
+
 
 	@Override
 	public String toString() {
