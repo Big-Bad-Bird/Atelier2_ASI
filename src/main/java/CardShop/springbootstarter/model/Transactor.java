@@ -8,5 +8,4 @@ public class Transactor {
 	public Transactor() {
 		// TODO Auto-generated constructor stub
 	}
-
 }
