@@ -14,7 +14,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String name;
-	private String surname;
+	private String username;
 	private String password;
 	private Integer argent;
 	private ArrayList<Long> collection; //Liste des cartes possédées par l'utilisateur
@@ -31,12 +31,12 @@ public class User {
 		this.name = name;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setSurname(String username) {
+		this.username = username;
 	}
 
 
@@ -66,7 +66,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", surname=" + surname + ", password=" + password + ", argent="
+		return "User [id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + ", argent="
 				+ argent + ", collection=" + collection + "]";
 	}
 		

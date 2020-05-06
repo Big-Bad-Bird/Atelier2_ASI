@@ -14,7 +14,7 @@ public class UserService {
 	public User createUser(User newUser) {
 		User u = new User();
 		u.setName(newUser.getName());
-		u.setSurname(newUser.getSurname());
+		u.setSurname(newUser.getUsername());
 		u.setPassword(newUser.getPassword());
 		u.setArgent(10000);
 //		
@@ -38,9 +38,6 @@ public class UserService {
 		return uIter;
 	}
 	
-	public void Session() {
-		
-	}
 	
 
 }

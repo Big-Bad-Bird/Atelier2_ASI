@@ -28,11 +28,11 @@
                 // Récupération des données de l'utilisateur
                 var form = document.getElementById("formAddUser");
                 var name = form.elements[0].value; // Affiche "Prenom"
-                var surname = form.elements[1].value; // Affiche "Nom"
+                var surname = form.elements[1].value; // Affiche "Pseudo"
                 var password = form.elements[2].value; // Affiche "Mdp"
                 var user = {}
                 user.name = name;
-                user.surname = surname;
+                user.username = username;
                 user.password = password;
                 var chaineJSON = JSON.stringify(user);
 
@@ -60,7 +60,7 @@
                     </div>
                     <div class="field">
                         <label>Surname</label>
-                        <input type="text" name="surname" placeholder="Enter your Surname">
+                        <input type="text" name="username" placeholder="Enter your Username">
                     </div>
                     <div class="field">
                         <label>Password</label>

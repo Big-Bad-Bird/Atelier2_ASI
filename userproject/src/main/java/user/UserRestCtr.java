@@ -1,6 +1,7 @@
 package user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,5 +56,13 @@ public class UserRestCtr {
 		return uService.getAllUser();
 	}
 	
+	@PostMapping("/verif-login")
+	public ResponseEntity<User> findUserByUsername(@RequestBody User user) {
+		System.out.println("Passage dans verif-login");
+//		Optional<User> userFound = userService.findByUsername(user.getUsername());
+//		return new ResponseEntity<User>(userFound.get(), HttpStatus.FOUND);
+		return null;
+//		Une fois la vérif ok, démarre session.
+	}
 
 }
