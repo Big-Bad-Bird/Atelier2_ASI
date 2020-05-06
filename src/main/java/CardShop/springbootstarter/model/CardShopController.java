@@ -46,15 +46,14 @@ public class CardShopController {
 	*
 	***/
 	
-	
-	@RequestMapping("/buyCard/{id}")
-	public void buyCard(@PathVariable String id) { // user à ajouter plus tard pour savoir qui achète
-		cardShopService.buyCard(id);
+	@RequestMapping(method=RequestMethod.POST,value="/buyCard")
+	public void buyCard(@RequestBody Transactor transactor) { // user à ajouter plus tard pour savoir qui achète
+		cardShopService.transactionCard(transactor.cardId, transactor.cardSeller, transactor.cardBuyer);
 	}
 	
-	@RequestMapping("/sellCard/{id}")
-	public void sellCard(@PathVariable String id) { // user à ajouter plus tard pour savoir qui achète
-		cardShopService.sellCard(id);
+	@RequestMapping(method=RequestMethod.POST,value="/sellCard") // POST Correct ??
+	public void sellCard(@RequestBody Transactor transactor) { // user à ajouter plus tard pour savoir qui achète
+		cardShopService.transactionCard(transactor.cardId, transactor.cardSeller, transactor.cardBuyer);
 	}
 }
 
