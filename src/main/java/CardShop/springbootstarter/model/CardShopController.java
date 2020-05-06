@@ -48,12 +48,12 @@ public class CardShopController {
 	
 	@RequestMapping(method=RequestMethod.POST,value="/buyCard")
 	public void buyCard(@RequestBody Transactor transactor) { // user à ajouter plus tard pour savoir qui achète
-		cardShopService.transactionCard(transactor.cardId, transactor.cardSeller, transactor.cardBuyer);
+		cardShopService.transactionCard(transactor);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST,value="/sellCard") // POST Correct ??
 	public void sellCard(@RequestBody Transactor transactor) { // user à ajouter plus tard pour savoir qui achète
-		cardShopService.transactionCard(transactor.cardId, transactor.cardSeller, transactor.cardBuyer);
+		cardShopService.transactionCard(transactor);
 	}
 }
 

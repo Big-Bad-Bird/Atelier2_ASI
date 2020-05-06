@@ -59,11 +59,19 @@ public class CardShopService {
 		return cardReturn;
 	}
 
-	public boolean transactionCard(String id, String sellId, String buyId) {// , User vendeur & acheteur
+	public boolean transactionCard(Transactor transactor) {// , User vendeur & acheteur
 		boolean answer = false;
-		// TODO on vérifie que l'id est dans la collection du user puis
-		// on décrémente la quantitée possédée si ça ne passe pas sous 0 sinon vente impossible
-		// return true si vente ok false sinon (modif BdD ?)
+		
+		String cardId = transactor.cardId;
+		String cardBuyer = transactor.cardBuyer;
+		String cardSeller = transactor.cardSeller;
+		
+		// TODO : trouver comment accéder aux Users
+		// puis gérer l'échange (baisse de monnaie + ajout exemplaire dans collection)
+		// inverse pour le vendeur 
+		// 2 conditions: suffisamment d'argent & suffisamment d'exemplaires
+		
+		
 		return answer;
 	}
 
