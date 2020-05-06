@@ -22,9 +22,7 @@ public class CardShopService {
 		
 		//TODO remplacer par appel à la BdD
 		this.cards = Arrays.asList(
-				new CardModel("Nidus", "ceci est la carte 1", "famille 1", 5, 5, 5, 5,
-							"https://vignette.wikia.nocookie.net/warframe/images/4/4c/NidusNewLook.png/revision/latest?cb=20161223053121",
-							500)
+				new CardModel("Nidus", "ceci est la carte 1", "famille 1", 5, 5, 5, 5,"lien",0)
 				);
 	}
 
