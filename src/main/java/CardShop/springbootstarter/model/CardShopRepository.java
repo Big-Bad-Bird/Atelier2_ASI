@@ -7,7 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface CardShopRepository extends CrudRepository<CardModel, String>{
 	public Optional<CardModel> findById(String id);
 	public List<CardModel> findAll();
-	public void remove(CardModel card);
 
 }
 
