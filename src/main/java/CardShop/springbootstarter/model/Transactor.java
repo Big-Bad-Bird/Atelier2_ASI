@@ -3,9 +3,13 @@ package CardShop.springbootstarter.model;
 public class Transactor {
 
 	String cardId;
-	String cardSeller;
-	String cardBuyer;
-	public Transactor() {
-		// TODO Auto-generated constructor stub
+	User cardBuyer;
+	User cardSeller;
+	int cost;
+	public Transactor(String cardId, User buyer, User seller, int cost) {
+		this.cardId = cardId;
+		this.cardBuyer = buyer;
+		this.cardSeller = seller;
+		this.cost = cost;
 	}
 }
