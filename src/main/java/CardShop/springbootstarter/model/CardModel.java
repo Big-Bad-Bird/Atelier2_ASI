@@ -3,11 +3,16 @@ package CardShop.springbootstarter.model;
 import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 @Entity
 public class CardModel {
+	// Ajoute une clef primaire
+	@Id
 	private String id;
+	
+	
 	private String name;
 	private String description;
 	private String family;
