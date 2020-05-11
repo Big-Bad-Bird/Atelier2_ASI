@@ -39,23 +39,11 @@ public class CardShopController {
 		cardShopService.delCard(card);
 	}
 	
-	
-	/*** en attendant de savoir comment on gère les différents profils	*
-	*    si on achète aux uns et aux autres etc
-	*   
-	*
-	***/
-	
-	
-	@RequestMapping("/buyCard/{id}")
-	public void buyCard(@PathVariable String id) { // user à ajouter plus tard pour savoir qui achète
-		cardShopService.buyCard(id);
+	@RequestMapping(method=RequestMethod.PUT,value="/transaction")
+	public void buyCard(@RequestBody Transactor transactor) { 
+		cardShopService.transactionCard(transactor);
 	}
-	
-	@RequestMapping("/sellCard/{id}")
-	public void sellCard(@PathVariable String id) { // user à ajouter plus tard pour savoir qui achète
-		cardShopService.sellCard(id);
-	}
+
 }
 
 

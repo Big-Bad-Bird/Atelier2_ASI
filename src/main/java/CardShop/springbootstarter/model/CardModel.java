@@ -2,6 +2,10 @@ package CardShop.springbootstarter.model;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+
+
+@Entity
 public class CardModel {
 	private String id;
 	private String name;
