@@ -12,7 +12,9 @@
         <link rel="stylesheet" type="text/css" href="lib/Semantic-UI-CSS-master/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="custom.css">
 
-
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--         <script src="C:\Users\charr\Desktop\Atelier_2\lib\carhartl-jquery-cookie-92b7715\jquery.cookie.js"></script>   -->
+        <script type="text/javascript" src="/../js/jquery.cookie.js"></script>
 
     </head>
 
@@ -22,11 +24,11 @@
             <div class="column"></div>
             <div class="column"></div>
             <div class="column">
-                <form name="login" class="ui form" method="GET">
+                <form id="formLogin" name="login" class="ui form" method="GET" onSubmit="askIfExists();return false">
                     <h3 class="ui dividing header">Login</h3>
                     <div class="field">
-                        <label>Surname</label>
-                        <input type="text" name="surname" placeholder="Surname">
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Username">
                     </div>
                     <div class="field">
                         <label>Password</label>
@@ -37,5 +39,53 @@
             </div>
         </div>
         <a href="formAddUser.html"> Vous n'avez pas encore de compte ? Inscrivez-vous ici. </a>
+
+        <script type="text/javascript">
+
+            function askIfExists(){
+                // Création de la requête
+                //var xhr = new XMLHttpRequest();
+                //xhr.open('POST', 'verif-login');
+                //xhr.setRequestHeader("Content-Type", "application/json");
+
+                // Récupération des données de l'utilisateur
+                var form = document.getElementById("formLogin");
+                var username = form.elements[0].value; // Affiche "Pseudo"
+                var password = form.elements[1].value; // Affiche "Mdp"
+                var user = {};
+                user.name ="";
+                user.username = username;
+                user.password = password;
+                var chaineJSON = JSON.stringify(user);
+                /*
+                    xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var json = JSON.parse(xhr.responseText);
+                        console.log(json);
+                        $.cookie("username", username);
+                        console.log("Création cookie");
+                     }
+                };*/
+
+                // Envoi de la requête
+                //xhr.send(chaineJSON);
+
+                $.ajax({
+                    url:"/verif-login",
+                    type:"POST",
+                    contentType:"application/json;charset=utf8",
+                    dataType:"json",
+                    data:chaineJSON,
+                    success: function(data, status){
+                    		console.log(data)
+                            alert("Username: " + data.name + "\nStatus: " + status);
+                    		
+                    		document.cookie = "username="+data.username; 
+                            console.log("Création cookie");
+                        }
+                });
+
+            }
+        </script>
     </body>
 </html>
