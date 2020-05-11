@@ -12,8 +12,9 @@
         <link rel="stylesheet" type="text/css" href="lib/Semantic-UI-CSS-master/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="custom.css">
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="C:\Users\charr\Desktop\Atelier 2\lib\carhartl-jquery-cookie-92b7715\jquery.cookie.js"></script>  
+<!--         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+<!--         <script src="C:\Users\charr\Desktop\Atelier_2\lib\carhartl-jquery-cookie-92b7715\jquery.cookie.js"></script> -->
+        <script type="text/javascript" src="/../js/jquery.cookie.js"></script>
 
     </head>
 
@@ -52,7 +53,6 @@
             </div>
         </div>
         <script type="text/javascript">
-            alert( $.cookie("username"));
             function create_u(){
                 // Création de la requête
                 var xhr = new XMLHttpRequest();
@@ -70,14 +70,16 @@
                 var name = form.elements[0].value; // Affiche "Prenom"
                 var username = form.elements[1].value; // Affiche "Pseudo"
                 var password = form.elements[2].value; // Affiche "Mdp"
-                var user = {}
+                var user = {};
                 user.name = name;
                 user.username = username;
                 user.password = password;
+
                 var chaineJSON = JSON.stringify(user);
 
                 // Envoi de la requête
                 xhr.send(chaineJSON);
+                
             };
                 
 
