@@ -2,6 +2,7 @@ package CardShop.springbootstarter.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,17 +37,27 @@ public class CardShopService {
 	
 	// retourne une carte spécifique
 	public CardModel getCard(String name) {
-		return CardShopRepository.findOne(String.valueOf(name));
-	}
+		CardModel cardReturn = this.errorCard;
+		
+		List<CardModel> cardList = new ArrayList<>();
+		CardShopRepository.findAll().forEach(cardList::add);
+		for (CardModel card : cardList) {
+	        if (card.getName().equals(name)) {
+	            cardReturn = card; 
+	        }
+		}
+		return cardReturn;
+	        
+	}	
 	
 	// ajoute une carte à la liste des cartes
 	public void addCard(CardModel card) {
-		CardShopRepository.add(card);
+		CardShopRepository.save(card);
 	}
 	
 	// supprime une carte de la liste des cartes
 	public void delCard(CardModel card) {
-		CardShopRepository.remove(card);
+		CardShopRepository.deleteById(card.getId());
 	}
 	
 	
