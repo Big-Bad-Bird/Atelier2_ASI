@@ -62,6 +62,7 @@ public class CardShopService {
 
 	public boolean sellCard(String id) {// , User vendeur
 		boolean answer = false;
+<<<<<<< Updated upstream
 		// TODO on vérifie que l'id est dans la collection du user puis
 		// on décrémente la quantitée possédée si ça ne passe pas sous 0 sinon vente impossible
 		// return true si vente ok false sinon (modif BdD ?)
@@ -76,6 +77,24 @@ public class CardShopService {
 		// TODO on vérifie que l'utilisateur peut acheter (fonds suffisants) puis
 		// on décrémente son porte monnaie
 		// return true si achat ok false sinon (modif BdD ?)
+=======
+		
+		
+		User cardBuyer = transactor.cardBuyer;
+		User cardSeller = transactor.cardSeller;
+		
+		cardBuyer.setArgent(cardBuyer.getArgent() - transactor.cost);
+		cardSeller.setArgent(cardSeller.getArgent() + transactor.cost);
+		
+		
+		int idAcheteur = cardBuyer.getId();
+		int idVendeur = cardSeller.getId();
+		String cardId = transactor.cardId;
+		
+		// à ce stade on peut trouver les utilisateurs par Id dans la BdD
+		// TODO ajouter connexion BdD quand on pourra
+		
+>>>>>>> Stashed changes
 		return answer;
 	}
 
